@@ -34,7 +34,7 @@ const handleLogIn = async (req, res) => {
     path: "/",
     domain:
       process.env.NODE_ENV === "production"
-        ? ".shortlyfy.vercel.app/"
+        ? "shortlyfy.vercel.app"
         : "localhost",
   });
   res.json({
