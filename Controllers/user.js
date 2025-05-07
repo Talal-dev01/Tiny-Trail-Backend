@@ -28,8 +28,9 @@ const handleLogIn = async (req, res) => {
   // //JWT WITH COOKIE METHOD
   res.cookie("token", token, {
     httpOnly: true,
-    secure: true,
-    sameSite: "none",
+    secure: process.env.NODE_ENV === "production", // true in production
+    sameSite: "lax",
+    maxAge: 24 * 60 * 60 * 1000, // 24 hours
     path: "/",
   });
   res.json({
