@@ -8,7 +8,9 @@ const handleSignUp = async (req, res) => {
     email,
     password,
   });
-  res.status(201).redirect("/users/login");
+  res.status(201).json({
+    msg: "User created successfully",
+  });
 };
 
 const handleLogIn = async (req, res) => {
@@ -26,14 +28,10 @@ const handleLogIn = async (req, res) => {
   // //JWT WITH COOKIE METHOD
   res.cookie("token", token, {
     httpOnly: true,
-    secure: true, // Always true for cross-site cookies (must use HTTPS)
-    sameSite: "none", // Required for cross-site cookies
-    // domain: "yourdomain.com", // REMOVE or set only if you know what you're doing
+    secure: true,
+    sameSite: "none",
     path: "/",
   });
-  if (user.role === "ADMIN") {
-    return res.redirect("/admin");
-  }
   res.json({
     message: "Logged in successfully",
   });
