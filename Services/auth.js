@@ -1,6 +1,6 @@
 // const hashMap = new Map();
 const jwt = require("jsonwebtoken");
-const secret = "nakryaar_1";
+const secret = process.env.JWT_SECRET;
 
 const handleSetUid = (user) => {
   // hashMap.set(uid, user);

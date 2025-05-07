@@ -25,11 +25,11 @@ const handleLogIn = async (req, res) => {
 
   // //JWT WITH COOKIE METHOD
   res.cookie("token", token, {
-    httpOnly: true, // Prevent access to the cookie from JavaScript
-    secure: process.env.NODE_ENV === "production", // Use secure cookies in production
-    sameSite: "lax", // Allow cookies to be sent with same-site requests
-    domain: "localhost", // Replace with your domain if needed
-    path: "/", // Make the cookie available for all routes
+    httpOnly: true,
+    secure: true, // Always true for cross-site cookies (must use HTTPS)
+    sameSite: "none", // Required for cross-site cookies
+    // domain: "yourdomain.com", // REMOVE or set only if you know what you're doing
+    path: "/",
   });
   if (user.role === "ADMIN") {
     return res.redirect("/admin");
