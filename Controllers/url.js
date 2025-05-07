@@ -12,7 +12,7 @@ const handleGenerateShortURL = async (req, res) => {
     shortId: shortId,
     redirectURL: req.body.url,
     visitHistory: [],
-    createdBy: req.user._id,
+    createdBy: req.user ? req.user._id : null,
   });
   res.status(201).json({ shortId: shortId });
 };
