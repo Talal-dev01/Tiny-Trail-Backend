@@ -18,6 +18,7 @@ const allowedOrigins = [
   "http://localhost:3000", // Local development
   "https://tinytrail.vercel.app", // Your deployed frontend,
   "https://tiny-trail-rouge.vercel.app",
+  "https://shortlyfy.vercel.app/",
 ];
 
 app.use(
